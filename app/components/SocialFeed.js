@@ -47,7 +47,7 @@ const socialPosts = [
         platform: "instagram",
         username: "@wildvadi_official",
         userImage: "https://i.pravatar.cc/100?img=12",
-        image: "https://images.unsplash.com/photo-1560713781-d00a25c79f5e?q=80&w=2070&auto=format&fit=crop",
+        image: "https://images.unsplash.com/photo-1566522650166-bd8b3e3a2b4b?q=80&w=2071&auto=format&fit=crop",
         caption: "Making waves! 🌊💦 Our wave pool is the perfect escape from the heat. Summer vibes all year round! #WaterPark #SummerFun",
         likes: "9.8K",
         comments: "567",
