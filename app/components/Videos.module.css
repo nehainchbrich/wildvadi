@@ -1,0 +1,721 @@
+.section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-image: linear-gradient(to bottom, var(--color-dark), var(--color-secondary), var(--color-dark));
+    position: relative;
+    overflow: hidden;
+}
+
+.bgEffects {
+    position: absolute;
+    inset: 0;
+}
+
+.bgEffect1 {
+    position: absolute;
+    top: 0;
+    left: 25%;
+    width: 24rem;
+    height: 24rem;
+    background-color: rgba(var(--color-primary-rgb), 0.2);
+    background-color: #FF6B0033;
+    border-radius: 9999px;
+    filter: blur(150px);
+}
+
+.bgEffect2 {
+    position: absolute;
+    bottom: 0;
+    right: 25%;
+    width: 500px;
+    height: 500px;
+    background-color: rgba(var(--color-accent-rgb), 0.1);
+    background-color: #00C4CC1A;
+    border-radius: 9999px;
+    filter: blur(180px);
+}
+
+.animatedPattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.05;
+}
+
+.patternInner {
+    position: absolute;
+    inset: 0;
+}
+
+.container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    position: relative;
+    z-index: 10;
+}
+
+@media (min-width: 640px) {
+    .container {
+        max-width: 640px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 768px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1024px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .container {
+        max-width: 1280px;
+    }
+}
+
+@media (min-width: 1536px) {
+    .container {
+        max-width: 1536px;
+    }
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.subtitle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    margin-bottom: 1rem;
+}
+
+.subtitleText {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 700;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.title {
+    font-size: 2.25rem;
+    font-weight: 900;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+    .title {
+        font-size: 3.75rem;
+    }
+}
+
+.titleHighlight {
+    color: var(--color-primary);
+}
+
+.description {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 42rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.featuredVideoWrapper {
+    grid-row: span 2;
+}
+
+.featuredVideoCard {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+@media (min-width: 1024px) {
+    .featuredVideoCard {
+        aspect-ratio: auto;
+        height: 100%;
+    }
+}
+
+.image {
+    object-fit: cover;
+    transition: transform 0.7s ease-in-out;
+}
+
+.featuredVideoCard:hover .image {
+    transform: scale(1.1);
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.4), transparent);
+}
+
+.playButtonWrapper {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.playButtonInner {
+    position: relative;
+}
+
+.playButtonPing {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(var(--color-primary-rgb), 0.3);
+    background-color: #FF6B004D;
+    border-radius: 9999px;
+    animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.playButton {
+    position: relative;
+    width: 6rem;
+    height: 6rem;
+    background-color: var(--color-primary);
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    transition: background-color 0.15s ease-in-out;
+}
+
+.featuredVideoCard:hover .playButton {
+    background-color: white;
+}
+
+.playIcon {
+    color: white;
+    margin-left: 0.5rem;
+    transition: color 0.15s ease-in-out;
+}
+
+.featuredVideoCard:hover .playIcon {
+    color: var(--color-primary);
+}
+
+.featuredBadge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
+
+.featuredBadgeText {
+    background-color: var(--color-primary);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+}
+
+.durationBadge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    padding: 0.375rem 0.75rem;
+    border-radius: 9999px;
+}
+
+.durationText {
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.featuredContent {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+    .featuredContent {
+        padding: 2rem;
+    }
+}
+
+.categoryBadge {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(4px);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    margin-bottom: 0.75rem;
+}
+
+.featuredTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+@media (min-width: 1024px) {
+    .featuredTitle {
+        font-size: 1.875rem;
+    }
+}
+
+.featuredDescription {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1rem;
+    display: none;
+}
+
+@media (min-width: 1024px) {
+    .featuredDescription {
+        display: block;
+    }
+}
+
+.viewsWrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.viewsText {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.875rem;
+}
+
+.otherVideosGrid {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+@media (min-width: 640px) {
+    .otherVideosGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.videoCard {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    border-radius: 1rem;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.videoCard:hover {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.videoCard:hover .image {
+    transform: scale(1.1);
+}
+
+.videoOverlay {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3), transparent);
+    opacity: 0.8;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.videoCard:hover .videoOverlay {
+    opacity: 1;
+}
+
+.videoPlayButtonWrapper {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.videoCard:hover .videoPlayButtonWrapper {
+    opacity: 1;
+}
+
+.videoPlayButton {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-color: var(--color-primary);
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transform: scale(0.75);
+    transition: transform 0.3s ease-in-out;
+}
+
+.videoCard:hover .videoPlayButton {
+    transform: scale(1);
+}
+
+.videoPlayIcon {
+    color: white;
+    margin-left: 0.25rem;
+}
+
+.videoDurationBadge {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    padding: 0.25rem 0.5rem;
+    border-radius: 9999px;
+}
+
+.videoDurationText {
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.videoContent {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+}
+
+.videoCategoryBadge {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(4px);
+    color: white;
+    font-size: 0.625rem;
+    font-weight: 700;
+    padding: 0.125rem 0.5rem;
+    border-radius: 9999px;
+    margin-bottom: 0.5rem;
+}
+
+.videoTitle {
+    color: white;
+    font-weight: 700;
+    font-size: 0.875rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.videoViewsWrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+}
+
+.videoViewsIcon {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.videoViewsText {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.75rem;
+}
+
+.thumbsGrid {
+    margin-top: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .thumbsGrid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1024px) {
+    .thumbsGrid {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+}
+
+.thumbCard {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.thumbCardSelected {
+    box-shadow: 0 0 0 4px var(--color-primary);
+}
+
+.thumbCardUnselected:hover {
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+}
+
+.thumbOverlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: background-color 0.15s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.thumbCard:hover .thumbOverlay {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.thumbPlayIcon {
+    color: white;
+    opacity: 0.8;
+}
+
+.viewAllWrapper {
+    text-align: center;
+    margin-top: 2.5rem;
+}
+
+.viewAllButton {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 9999px;
+    font-weight: 700;
+    font-size: 1.125rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: background-color 0.15s ease-in-out;
+}
+
+.viewAllButton:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.modalOverlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(12px);
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.modalContent {
+    position: relative;
+    width: 100%;
+    max-width: 64rem;
+}
+
+.modalVideoWrapper {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background-color: black;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.modalPlayOverlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modalPlayButton {
+    width: 5rem;
+    height: 5rem;
+    background-color: var(--color-primary);
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1rem;
+}
+
+.modalPlayIcon {
+    color: white;
+    margin-left: 0.25rem;
+}
+
+.modalPlayText {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.modalInfo {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .modalInfo {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.modalCategory {
+    display: inline-block;
+    background-color: rgba(var(--color-primary-rgb), 0.2);
+    background-color: #FF6B0033;
+    color: var(--color-primary);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    margin-bottom: 0.5rem;
+}
+
+.modalTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+}
+
+.modalDescription {
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 0.25rem;
+}
+
+.modalActions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.modalActionButton {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    transition: background-color 0.15s ease-in-out;
+}
+
+.modalActionButton:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.modalNavButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3rem;
+    height: 3rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: background-color 0.15s ease-in-out;
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .modalNavButton {
+        display: flex;
+    }
+}
+
+.modalNavButton:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.modalPrevButton {
+    left: 0;
+    transform: translateY(-50%) translateX(-4rem);
+}
+
+.modalNextButton {
+    right: 0;
+    transform: translateY(-50%) translateX(4rem);
+}
+
+.modalCloseButton {
+    position: absolute;
+    top: -3rem;
+    right: 0;
+    padding: 0.5rem;
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0.15s ease-in-out;
+}
+
+.modalCloseButton:hover {
+    color: white;
+}

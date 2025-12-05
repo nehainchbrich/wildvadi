@@ -1,0 +1,445 @@
+.section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-image: linear-gradient(to bottom, white, var(--color-light), white);
+    position: relative;
+    overflow: hidden;
+}
+
+.bgElement1 {
+    position: absolute;
+    top: 5rem;
+    left: 2.5rem;
+    width: 18rem;
+    height: 18rem;
+    background-color: rgba(var(--color-primary-rgb), 0.05);
+    background-color: #FF6B000D;
+    border-radius: 9999px;
+    filter: blur(40px);
+}
+
+.bgElement2 {
+    position: absolute;
+    bottom: 5rem;
+    right: 2.5rem;
+    width: 24rem;
+    height: 24rem;
+    background-color: rgba(var(--color-accent-rgb), 0.05);
+    background-color: #00C4CC0D;
+    border-radius: 9999px;
+    filter: blur(40px);
+}
+
+.bgElement3 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background-color: rgba(var(--color-secondary-rgb), 0.03);
+    background-color: #2C1E6D08;
+    border-radius: 9999px;
+    filter: blur(150px);
+}
+
+.container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    position: relative;
+    z-index: 10;
+}
+
+@media (min-width: 640px) {
+    .container {
+        max-width: 640px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 768px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1024px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .container {
+        max-width: 1280px;
+    }
+}
+
+@media (min-width: 1536px) {
+    .container {
+        max-width: 1536px;
+    }
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.subtitle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+.title {
+    font-size: 2.25rem;
+    font-weight: 900;
+    color: var(--color-dark);
+    margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+    .title {
+        font-size: 3.75rem;
+    }
+}
+
+.titleHighlight {
+    color: var(--color-primary);
+}
+
+.description {
+    font-size: 1.25rem;
+    color: #4B5563;
+    max-width: 42rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 3rem;
+}
+
+.filterBtn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    font-weight: 700;
+    font-size: 0.875rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.filterBtnActive {
+    background-image: linear-gradient(to right, var(--color-primary), #f97316);
+    color: white;
+    box-shadow: 0 10px 15px -3px rgba(255, 107, 0, 0.3);
+}
+
+.filterBtnInactive {
+    background-color: white;
+    color: #374151;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border: 1px solid #F3F4F6;
+}
+
+.filterBtnInactive:hover {
+    background-color: #F9FAFB;
+}
+
+.galleryGrid {
+    column-count: 1;
+    column-gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .galleryGrid {
+        column-count: 2;
+    }
+}
+
+@media (min-width: 1024px) {
+    .galleryGrid {
+        column-count: 3;
+    }
+}
+
+.galleryItem {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.5rem;
+    cursor: pointer;
+    break-inside: avoid;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease-in-out;
+    margin-bottom: 1.5rem;
+}
+
+.galleryItem:hover {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.aspectLarge {
+    aspect-ratio: 4 / 5;
+}
+
+.aspectMedium {
+    aspect-ratio: 4 / 3;
+}
+
+.aspectSquare {
+    aspect-ratio: 1 / 1;
+}
+
+.image {
+    object-fit: cover;
+    transition: transform 0.7s ease-in-out;
+}
+
+.galleryItem:hover .image {
+    transform: scale(1.1);
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2), transparent);
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.galleryItem:hover .overlay {
+    opacity: 1;
+}
+
+.categoryBadge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 10;
+}
+
+.categoryBadgeText {
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(4px);
+    color: var(--color-dark);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.375rem 0.75rem;
+    border-radius: 9999px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.hoverContent {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.5rem;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    transform: translateY(1rem);
+}
+
+.galleryItem:hover .hoverContent {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.itemTitle {
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.actionBtn {
+    padding: 0.625rem;
+    border-radius: 9999px;
+    backdrop-filter: blur(12px);
+    transition: background-color 0.15s ease-in-out;
+}
+
+.likeBtnActive {
+    background-color: #EF4444;
+    color: white;
+}
+
+.likeBtnInactive {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.likeBtnInactive:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.iconFilled {
+    fill: white;
+}
+
+.secondaryActionBtn {
+    padding: 0.625rem;
+    border-radius: 9999px;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    color: white;
+    transition: background-color 0.15s ease-in-out;
+}
+
+.secondaryActionBtn:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.likesCount {
+    margin-left: auto;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.likesIcon {
+    fill: rgba(255, 255, 255, 0.8);
+}
+
+.sparkle {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.sparkleIcon {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.viewMoreWrapper {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.viewMoreBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background-image: linear-gradient(to right, var(--color-secondary), var(--color-dark));
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 9999px;
+    font-weight: 700;
+    font-size: 1.125rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.viewMoreBtn:hover {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.modalOverlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(12px);
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    cursor: pointer;
+}
+
+.modalContent {
+    position: relative;
+    max-width: 64rem;
+    width: 100%;
+    max-height: 85vh;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    cursor: default;
+}
+
+.modalImageWrapper {
+    position: relative;
+    aspect-ratio: 16 / 9;
+}
+
+.modalInfo {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    padding: 2rem;
+}
+
+.modalCategory {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.375rem 1rem;
+    border-radius: 9999px;
+    margin-bottom: 0.75rem;
+}
+
+.modalTitle {
+    color: white;
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.modalMeta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.modalLikes {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.modalHeart {
+    fill: #EF4444;
+    color: #EF4444;
+}
+
+.closeBtn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.75rem;
+    border-radius: 9999px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    color: white;
+    transition: background-color 0.15s ease-in-out;
+}
+
+.closeBtn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
