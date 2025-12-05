@@ -122,38 +122,54 @@ export default function BlogPage() {
     const [searchQuery, setSearchQuery] = useState("");
 
     const featuredPost = blogPosts.find((post) => post.featured);
+
     const filteredPosts = blogPosts.filter((post) => {
-        const matchesCategory = activeCategory === "All" || post.category === activeCategory;
-        const matchesSearch = post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        const matchesCategory =
+            activeCategory === "All" || post.category === activeCategory;
+
+        const matchesSearch =
+            post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
             post.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
+
         return matchesCategory && matchesSearch && !post.featured;
     });
 
     return (
         <>
             <Navbar />
+
             <main className={styles.main}>
-                {/* Header */}
+
+                {/* -------------------- HERO -------------------- */}
                 <section className={styles.heroSection}>
                     <div className={styles.heroOverlay}>
-                        <div className={styles.heroPattern} style={{
-                            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-                        }}></div>
+                        <div
+                            className={styles.heroPattern}
+                            style={{
+                                backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+                            }}
+                        ></div>
                     </div>
+
                     <div className={styles.container}>
                         <div className={styles.heroContent}>
                             <h1 className={styles.heroTitle}>
-                                News & <span className={styles.heroTitleHighlight}>Blog</span>
+                                News &{" "}
+                                <span className={styles.heroTitleHighlight}>
+                                    Blog
+                                </span>
                             </h1>
                             <p className={styles.heroDescription}>
-                                Stay updated with the latest news, events, and insider tips from WildVadi
+                                Stay updated with the latest news, events,
+                                and insider tips from WildVadi
                             </p>
                         </div>
                     </div>
                 </section>
 
                 <div className={`${styles.container} ${styles.contentSection}`}>
-                    {/* Featured Post */}
+
+                    {/* -------------------- FEATURED POST -------------------- */}
                     {featuredPost && (
                         <motion.article
                             initial={{ opacity: 0, y: 20 }}
@@ -161,8 +177,10 @@ export default function BlogPage() {
                             className={styles.featuredArticle}
                         >
                             <Link href={`/blog/${featuredPost.id}`}>
-                                <div className={`${styles.featuredCard} group`}>
+                                <div className={styles.featuredCard}>
                                     <div className={styles.featuredGrid}>
+
+                                        {/* IMAGE */}
                                         <div className={styles.featuredImageWrapper}>
                                             <Image
                                                 src={featuredPost.image}
@@ -170,23 +188,29 @@ export default function BlogPage() {
                                                 fill
                                                 className={styles.image}
                                             />
+
                                             <div className={styles.featuredBadge}>
                                                 <span className={styles.featuredBadgeText}>
                                                     Featured
                                                 </span>
                                             </div>
                                         </div>
+
+                                        {/* CONTENT */}
                                         <div className={styles.featuredContent}>
                                             <span className={styles.featuredCategory}>
                                                 <Tag size={14} />
                                                 {featuredPost.category}
                                             </span>
+
                                             <h2 className={styles.featuredTitle}>
                                                 {featuredPost.title}
                                             </h2>
+
                                             <p className={styles.featuredExcerpt}>
                                                 {featuredPost.excerpt}
                                             </p>
+
                                             <div className={styles.featuredMeta}>
                                                 <span className={styles.metaItem}>
                                                     <User size={16} />
@@ -208,9 +232,9 @@ export default function BlogPage() {
                         </motion.article>
                     )}
 
-                    {/* Filters */}
+                    {/* -------------------- FILTERS -------------------- */}
                     <div className={styles.filtersWrapper}>
-                        {/* Categories */}
+
                         <div className={styles.categoriesList}>
                             {categories.map((cat) => (
                                 <button
@@ -226,20 +250,22 @@ export default function BlogPage() {
                             ))}
                         </div>
 
-                        {/* Search */}
+                        {/* SEARCH */}
                         <div className={styles.searchWrapper}>
                             <Search className={styles.searchIcon} size={20} />
                             <input
                                 type="text"
                                 placeholder="Search articles..."
                                 value={searchQuery}
-                                onChange={(e) => setSearchQuery(e.target.value)}
+                                onChange={(e) =>
+                                    setSearchQuery(e.target.value)
+                                }
                                 className={styles.searchInput}
                             />
                         </div>
                     </div>
 
-                    {/* Blog Grid */}
+                    {/* -------------------- BLOG GRID -------------------- */}
                     <div className={styles.postsGrid}>
                         {filteredPosts.map((post, index) => (
                             <motion.article
@@ -249,8 +275,9 @@ export default function BlogPage() {
                                 transition={{ delay: index * 0.1 }}
                             >
                                 <Link href={`/blog/${post.id}`}>
-                                    <div className={`${styles.postCard} group`}>
-                                        {/* Image */}
+                                    <div className={styles.postCard}>
+
+                                        {/* IMAGE */}
                                         <div className={styles.postImageWrapper}>
                                             <Image
                                                 src={post.image}
@@ -265,14 +292,16 @@ export default function BlogPage() {
                                             </div>
                                         </div>
 
-                                        {/* Content */}
+                                        {/* CONTENT */}
                                         <div className={styles.postContent}>
                                             <h3 className={styles.postTitle}>
                                                 {post.title}
                                             </h3>
+
                                             <p className={styles.postExcerpt}>
                                                 {post.excerpt}
                                             </p>
+
                                             <div className={styles.postMeta}>
                                                 <span className={styles.metaItem}>
                                                     <Calendar size={14} />
@@ -290,20 +319,23 @@ export default function BlogPage() {
                         ))}
                     </div>
 
-                    {/* Empty State */}
+                    {/* IF NO POSTS */}
                     {filteredPosts.length === 0 && (
                         <div className={styles.emptyState}>
                             <div className={styles.emptyIcon}>📭</div>
                             <h3 className={styles.emptyTitle}>No articles found</h3>
-                            <p className={styles.emptyText}>Try adjusting your search or filter</p>
+                            <p className={styles.emptyText}>
+                                Try adjusting your search or filter
+                            </p>
                         </div>
                     )}
 
-                    {/* Pagination */}
+                    {/* -------------------- PAGINATION -------------------- */}
                     <div className={styles.pagination}>
-                        <button className={`${styles.paginationBtn} ${styles.paginationBtnArrow}`}>
+                        <button className={styles.paginationBtn}>
                             <ChevronLeft size={20} />
                         </button>
+
                         {[1, 2, 3].map((page) => (
                             <button
                                 key={page}
@@ -315,29 +347,30 @@ export default function BlogPage() {
                                 {page}
                             </button>
                         ))}
-                        <button className={`${styles.paginationBtn} ${styles.paginationBtnArrow}`}>
+
+                        <button className={styles.paginationBtn}>
                             <ChevronRight size={20} />
                         </button>
                     </div>
 
-                    {/* Newsletter */}
+                    {/* -------------------- NEWSLETTER -------------------- */}
                     <div className={styles.newsletter}>
                         <h3 className={styles.newsletterTitle}>
                             Subscribe to Our Newsletter
                         </h3>
+
                         <p className={styles.newsletterText}>
                             Get the latest news, exclusive offers, and insider tips delivered straight to your inbox.
                         </p>
+
                         <form className={styles.newsletterForm}>
                             <input
                                 type="email"
                                 placeholder="Enter your email"
                                 className={styles.newsletterInput}
                             />
-                            <button
-                                type="submit"
-                                className={styles.newsletterBtn}
-                            >
+
+                            <button type="submit" className={styles.newsletterBtn}>
                                 Subscribe
                                 <ArrowRight size={18} />
                             </button>
@@ -345,6 +378,7 @@ export default function BlogPage() {
                     </div>
                 </div>
             </main>
+
             <Footer />
         </>
     );

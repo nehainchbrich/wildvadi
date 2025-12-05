@@ -1,25 +1,10 @@
+/* ----------------------------------------------
+   PAGE LAYOUT
+---------------------------------------------- */
+
 .main {
     min-height: 100vh;
     background-color: var(--color-light);
-}
-
-.heroSection {
-    background-image: linear-gradient(to right, var(--color-secondary), var(--color-dark), var(--color-secondary));
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-    position: relative;
-    overflow: hidden;
-}
-
-.heroOverlay {
-    position: absolute;
-    inset: 0;
-    opacity: 0.1;
-}
-
-.heroPattern {
-    position: absolute;
-    inset: 0;
 }
 
 .container {
@@ -62,6 +47,29 @@
     }
 }
 
+/* ----------------------------------------------
+   HERO SECTION
+---------------------------------------------- */
+
+.heroSection {
+    background-image: linear-gradient(to right, var(--color-secondary), var(--color-dark), var(--color-secondary));
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.heroOverlay {
+    position: absolute;
+    inset: 0;
+    opacity: 0.1;
+}
+
+.heroPattern {
+    position: absolute;
+    inset: 0;
+}
+
 .heroContent {
     text-align: center;
 }
@@ -91,6 +99,10 @@
     margin-right: auto;
 }
 
+/* ----------------------------------------------
+   FEATURED ARTICLE
+---------------------------------------------- */
+
 .contentSection {
     padding-top: 3rem;
     padding-bottom: 3rem;
@@ -105,12 +117,14 @@
     background-color: white;
     border-radius: 1.5rem;
     overflow: hidden;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+        0 4px 6px -2px rgba(0, 0, 0, 0.05);
     transition: box-shadow 0.15s ease-in-out;
 }
 
 .featuredCard:hover {
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+        0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 .featuredGrid {
@@ -191,11 +205,194 @@
 }
 
 .featuredCard:hover .featuredTitle {
-    font-size: 0.75rem;
+    font-size: 1.75rem;
     color: #6B7280;
     padding-top: 1rem;
     border-top: 1px solid #F3F4F6;
 }
+
+.featuredExcerpt {
+    color: #4B5563;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.featuredMeta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.metaItem {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: #6B7280;
+    font-size: 0.875rem;
+}
+
+/* ----------------------------------------------
+   CATEGORY FILTER & SEARCH
+---------------------------------------------- */
+
+.filtersWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+@media (min-width: 768px) {
+    .filtersWrapper {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.categoriesList {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.categoryBtn {
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.15s ease-in-out;
+}
+
+.categoryBtnActive {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.categoryBtnInactive {
+    background-color: white;
+    border: 1px solid #E5E7EB;
+    color: #4B5563;
+}
+
+.categoryBtnInactive:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.searchWrapper {
+    position: relative;
+    max-width: 20rem;
+    width: 100%;
+}
+
+.searchIcon {
+    position: absolute;
+    top: 50%;
+    left: 0.75rem;
+    transform: translateY(-50%);
+    color: #9CA3AF;
+}
+
+.searchInput {
+    width: 100%;
+    padding: 0.65rem 0.75rem 0.65rem 2.5rem;
+    border-radius: 0.75rem;
+    border: 1px solid #E5E7EB;
+    outline: none;
+    transition: border-color 0.15s;
+}
+
+.searchInput:focus {
+    border-color: var(--color-primary);
+}
+
+/* ----------------------------------------------
+   BLOG POSTS GRID
+---------------------------------------------- */
+
+.postsGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .postsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .postsGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.postCard {
+    background: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.postCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+}
+
+.postImageWrapper {
+    position: relative;
+    aspect-ratio: 16 / 9;
+}
+
+.postCategoryBadge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
+
+.postCategoryText {
+    background-color: var(--color-primary);
+    color: white;
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+    font-weight: 700;
+    border-radius: 9999px;
+}
+
+.postContent {
+    padding: 1.25rem;
+}
+
+.postTitle {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 0.5rem;
+}
+
+.postExcerpt {
+    color: #6B7280;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.postMeta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    color: #6B7280;
+    font-size: 0.875rem;
+}
+
+/* ----------------------------------------------
+   EMPTY STATE
+---------------------------------------------- */
 
 .emptyState {
     text-align: center;
@@ -219,6 +416,10 @@
     color: #6B7280;
 }
 
+/* ----------------------------------------------
+   PAGINATION
+---------------------------------------------- */
+
 .pagination {
     display: flex;
     align-items: center;
@@ -234,26 +435,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: color 0.15s ease-in-out;
-}
-
-.paginationBtnArrow {
-    border: 1px solid #E5E7EB;
-    color: #9CA3AF;
-}
-
-.paginationBtnArrow:hover {
-    border-color: var(--color-primary);
-    color: var(--color-primary);
-}
-
-.paginationBtnArrowText {
-    color: #4B5563;
-}
-
-.paginationBtnNumber {
-    font-weight: 500;
-    transition: color 0.15s ease-in-out;
 }
 
 .paginationBtnActive {
@@ -270,6 +451,10 @@
     border-color: var(--color-primary);
     color: var(--color-primary);
 }
+
+/* ----------------------------------------------
+   NEWSLETTER
+---------------------------------------------- */
 
 .newsletter {
     margin-top: 4rem;
@@ -323,10 +508,7 @@
 
 .newsletterInput {
     flex: 1;
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
+    padding: 0.75rem 1.25rem;
     border-radius: 0.75rem;
     border: 0;
 }
@@ -339,17 +521,14 @@
 .newsletterBtn {
     background-color: var(--color-dark);
     color: white;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
+    padding: 0.75rem 1.5rem;
     border-radius: 0.75rem;
     font-weight: 700;
-    transition: background-color 0.15s ease-in-out;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
+    transition: background-color 0.15s;
 }
 
 .newsletterBtn:hover {

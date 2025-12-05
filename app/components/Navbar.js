@@ -236,14 +236,23 @@ export default function Navbar() {
 
                                 {/* Mobile CTA */}
                                 <div className={styles.mobileActions}>
-                                    <button className={styles.mobileBtnPrimary}>
+                                    <Link
+                                        href="/tickets"
+                                        className={styles.mobileBtnPrimary}
+                                        onClick={() => setIsOpen(false)}
+                                    >
                                         <Ticket size={20} />
                                         Buy Tickets
-                                    </button>
-                                    <button className={styles.mobileBtnSecondary}>
+                                    </Link>
+
+                                    <Link
+                                        href="/login"
+                                        className={styles.mobileBtnSecondary}
+                                        onClick={() => setIsOpen(false)}
+                                    >
                                         <User size={20} />
                                         Login / Sign Up
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
                         </motion.div>
